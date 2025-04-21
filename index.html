@@ -1,0 +1,3662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Horizon | Luxury 5-Star Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS will be placed here */
+    /* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #8B5A2B;
+    --primary-dark: #6B4423;
+    --primary-light: #B78D65;
+    --secondary-color: #3A506B;
+    --accent-color: #CB997E;
+    --text-dark: #333333;
+    --text-medium: #555555;
+    --text-light: #777777;
+    --text-white: #ffffff;
+    --bg-light: #f9f7f5;
+    --bg-white: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    color: var(--text-light);
+    line-height: 1.6;
+    background-color: var(--bg-white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 1.25rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    font-family: var(--font-secondary);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    transform: translateY(-2px);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    font-weight: 500;
+}
+
+.btn-text:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    margin-right: 1rem;
+}
+
+.btn-login:hover {
+    background-color: var(--bg-light);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin-top: 1rem;
+}
+
+.section-subtitle {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    display: block;
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-inner {
+    text-align: center;
+}
+
+.preloader-icon {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--primary-light);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.navbar.scrolled .logo {
+    color: var(--text-dark);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    margin: 0 1rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.navbar.scrolled .nav-links a {
+    color: var(--text-dark);
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-white);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .hamburger span {
+    background-color: var(--text-dark);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slider {
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--text-white);
+    max-width: 600px;
+    padding-top: 20vh;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content .subtitle {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.hero-content .title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content .description {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.slide-controls {
+    position: absolute;
+    bottom: 5rem;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.slide-prev, .slide-next {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.slide-prev:hover, .slide-next:hover {
+    background-color: var(--primary-color);
+}
+
+.slide-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.slide-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Booking Widget */
+.booking-widget {
+    background-color: var(--bg-white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: -50px;
+    position: relative;
+    z-index: 100;
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.2);
+}
+
+/* About Section */
+.about-section {
+    padding: 6rem 0;
+    background-color: var(--bg-light);
+}
+
+.about-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-content {
+    padding-right: 2rem;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature i {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+.about-images {
+    position: relative;
+    height: 500px;
+}
+
+.image-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.image-secondary {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border: 8px solid var(--bg-white);
+    z-index: 2;
+}
+
+/* Rooms Section */
+.rooms-section {
+    padding: 6rem 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.room-card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.room-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.room-content {
+    padding: 1.5rem;
+}
+
+.room-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.room-features {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.room-features i {
+    margin-right: 0.25rem;
+    color: var(--primary-color);
+}
+
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.price {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.price small {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    display: block;
+    font-weight: 400;
+}
+
+.section-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Dining Section */
+.dining-section {
+    padding: 6rem 0;
+    background-color: var(--bg-light);
+}
+
+.dining-tabs {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tab-header {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1.25rem;
+    background: none;
+    border: none;
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    color: var(--text-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+}
+
+.tab-btn.active:after {
+    width: 100%;
+}
+
+.tab-content {
+    padding: 2rem;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.tab-image {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.tab-details h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.michelin-star {
+    color: #E63946;
+    font-size: 1.5rem;
+}
+
+.cuisine-type {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.dining-hours div {
+    margin-bottom: 0.5rem;
+}
+
+.dining-hours span {
+    font-weight: 500;
+    color: var(--text-dark);
+    display: inline-block;
+    width: 80px;
+}
+
+.dining-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.dress-code {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Spa Section */
+.spa-section {
+    padding: 6rem 0;
+}
+
+.spa-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.spa-image {
+    position: relative;
+    height: 500px;
+}
+
+.spa-image .image-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.spa-image .image-secondary {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border: 8px solid var(--bg-white);
+    z-index: 2;
+}
+
+.spa-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Events Section */
+.events-section {
+    padding: 6rem 0;
+    background-color: var(--bg-light);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.event-capacity {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.event-content {
+    padding: 1.5rem;
+}
+
+.event-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 6rem 0;
+    background-color: var(--bg-white);
+}
+
+.testimonials-slider {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial {
+    display: none;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.testimonial.active {
+    display: block;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.testimonial-content {
+    background-color: var(--bg-light);
+    padding: 3rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.testimonial-content:before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-family: var(--font-primary);
+    font-size: 5rem;
+    color: var(--primary-light);
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.rating {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.rating i {
+    margin: 0 0.125rem;
+}
+
+.testimonial p {
+    font-size: 1.125rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.guest-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-right: 1rem;
+    border: 3px solid var(--primary-light);
+}
+
+.guest-details h4 {
+    margin-bottom: 0.25rem;
+}
+
+.guest-location {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.testimonial-prev, .testimonial-next {
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-prev:hover, .testimonial-next:hover {
+    color: var(--primary-color);
+}
+
+.testimonial-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.testimonial-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 6rem 0;
+    background-color: var(--bg-light);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(139, 90, 43, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: var(--text-white);
+    font-size: 2rem;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 6rem 0;
+    background-color: var(--bg-white);
+}
+
+.contact-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.contact-info {
+    margin-top: 2rem;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-right: 1rem;
+    margin-top: 0.25rem;
+}
+
+.info-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.2);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    padding: 4rem 0;
+    background-color: var(--primary-color);
+    color: var(--text-white);
+}
+
+.newsletter-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newsletter-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-family: var(--font-secondary);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+}
+
+.newsletter-form button {
+    border-radius: 0 4px 4px 0;
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.newsletter-form button:hover {
+    background-color: var(--text-dark);
+    border-color: var(--text-dark);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--text-dark);
+    color: var(--text-white);
+    padding: 4rem 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer-col h4:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-logo {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-top: 1rem;
+}
+
+.footer-logo span {
+    color: var(--primary-color);
+}
+
+.footer-col ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-col ul li a {
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.payment-methods {
+    display: flex;
+    gap: 1rem;
+}
+
+.payment-methods i {
+    font-size: 1.5rem;
+    color: var(--text-light);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-50px);
+    transition: all 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-body h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.modal-body p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form .form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+}
+
+.auth-form .form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.2);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check input {
+    margin-right: 0.5rem;
+}
+
+.forgot-password {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.auth-divider {
+    position: relative;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.auth-divider:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.auth-divider span {
+    position: relative;
+    z-index: 2;
+    background-color: var(--bg-white);
+    padding: 0 1rem;
+    color: var(--text-light);
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.btn-social i {
+    margin-right: 0.5rem;
+    font-size: 1.125rem;
+}
+
+.btn-google {
+    background-color: #DB4437;
+    color: white;
+    border: 1px solid #DB4437;
+}
+
+.btn-google:hover {
+    background-color: #c23325;
+    border-color: #c23325;
+}
+
+.btn-facebook {
+    background-color: #4267B2;
+    color: white;
+    border: 1px solid #4267B2;
+}
+
+.btn-facebook:hover {
+    background-color: #355592;
+    border-color: #355592;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-light);
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Dashboard */
+.dashboard-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dashboard-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.dashboard-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    background-color: var(--bg-white);
+    display: flex;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.dashboard-overlay.active .dashboard-container {
+    transform: translateX(0);
+}
+
+.dashboard-sidebar {
+    width: 300px;
+    background-color: var(--text-dark);
+    color: var(--text-white);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.dashboard-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-right: 1rem;
+    border: 3px solid var(--primary-color);
+}
+
+.user-info h4 {
+    margin-bottom: 0.25rem;
+    color: var(--text-white);
+}
+
+.user-status {
+    font-size: 0.75rem;
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.dashboard-nav {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.nav-item i {
+    margin-right: 0.75rem;
+    font-size: 1.125rem;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-item.active, .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+}
+
+.badge {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout i {
+    margin-right: 0.5rem;
+}
+
+.btn-logout:hover {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+}
+
+.dashboard-main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-header h3 {
+    margin-bottom: 0;
+}
+
+.btn-close-dashboard {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.btn-close-dashboard:hover {
+    color: var(--primary-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.dashboard-content {
+    display: none;
+}
+
+.dashboard-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.welcome-banner {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.welcome-banner h2 {
+    margin-bottom: 0.5rem;
+}
+
+.welcome-banner p {
+    margin-bottom: 0;
+    color: var(--text-medium);
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.stat-icon i {
+    font-size: 1.25rem;
+}
+
+.stat-info h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+}
+
+.stat-info p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.upcoming-stays {
+    margin-bottom: 3rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h4 {
+    margin-bottom: 0;
+}
+
+.section-header a {
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.stays-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.stay-card {
+    display: grid;
+    grid-template-columns: 150px 1fr auto;
+    gap: 1.5rem;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stay-image {
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.stay-details h5 {
+    margin-bottom: 0.5rem;
+}
+
+.stay-date, .stay-guests {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.stay-date i, .stay-guests i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.stay-status {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.stay-status i {
+    margin-right: 0.25rem;
+}
+
+.stay-status.confirmed {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--success-color);
+}
+
+.stay-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.no-bookings {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+}
+
+.no-bookings i {
+    font-size: 2rem;
+    color: var(--primary-light);
+    margin-bottom: 1rem;
+}
+
+.no-bookings p {
+    margin-bottom: 0;
+    color: var(--text-light);
+}
+
+.rewards-section {
+    margin-bottom: 3rem;
+}
+
+.rewards-card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.rewards-progress {
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.progress-label {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.progress-label:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--primary-color);
+}
+
+.tier-markers {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.tier-marker {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-light);
+    position: relative;
+    padding-top: 1.5rem;
+    text-align: center;
+    flex: 1;
+}
+
+.tier-marker:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+}
+
+.tier-marker.active:before {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.2);
+}
+
+.tier-marker.silver:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: var(--border-color);
+}
+
+.tier-marker.gold:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-color);
+}
+
+.tier-marker.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.rewards-details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.rewards-points h5 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.rewards-points p {
+    margin-bottom: 0;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.rewards-benefits h5 {
+    margin-bottom: 1rem;
+}
+
+.rewards-benefits ul {
+    margin-bottom: 0;
+}
+
+.rewards-benefits li {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+}
+
+.rewards-benefits i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.profile-card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-right: 1.5rem;
+    border: 5px solid var(--primary-light);
+}
+
+.profile-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.member-status {
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.member-status.gold {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+.member-status i {
+    margin-right: 0.25rem;
+}
+
+.member-since {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.profile-details {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.detail-group h5 {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item {
+    margin-bottom: 1rem;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.detail-item p {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.bookings-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.bookings-tabs .tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    color: var(--text-medium);
+    cursor: pointer;
+    position: relative;
+    margin-bottom: -1px;
+}
+
+.bookings-tabs .tab-btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.bookings-tabs .tab-btn.active {
+    color: var(--primary-color);
+}
+
+.bookings-tabs .tab-btn.active:after {
+    width: 100%;
+}
+
+.bookings-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.booking-card {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 1.5rem;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.booking-image {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.booking-details h5 {
+    margin-bottom: 0.5rem;
+}
+
+.booking-date, .booking-id {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.booking-date i, .booking-id i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.booking-status {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.booking-status i {
+    margin-right: 0.25rem;
+}
+
+.booking-status.confirmed {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--success-color);
+}
+
+.booking-price {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.booking-price small {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 400;
+    display: block;
+}
+
+.booking-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .dashboard-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-section .container,
+    .spa-section .container,
+    .contact-section .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-images, .spa-image {
+        height: 400px;
+        order: -1;
+    }
+    
+    .newsletter-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .newsletter-form {
+        max-width: 100%;
+    }
+    
+    .tab-pane.active {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-image {
+        height: 250px;
+    }
+    
+    .dashboard-sidebar {
+        width: 250px;
+    }
+    
+    .booking-card, .stay-card {
+        grid-template-columns: 150px 1fr;
+    }
+    
+    .booking-actions, .stay-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .container {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--bg-white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem 2rem;
+        transition: all 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        color: var(--text-dark);
+        margin: 0 0 1rem;
+        padding: 0.5rem 0;
+    }
+    
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .hero-content {
+        padding-top: 15vh;
+    }
+    
+    .hero-content .title {
+        font-size: 2.5rem;
+    }
+    
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-widget {
+        margin-top: -100px;
+    }
+    
+    .rooms-grid, .events-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .dashboard-sidebar {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .dashboard-user {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .dashboard-nav {
+        display: none;
+    }
+    
+    .dashboard-nav.active {
+        display: block;
+    }
+    
+    .btn-close-dashboard {
+        display: block;
+    }
+    
+    .rewards-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-content .title {
+        font-size: 2rem;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-header {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1 0 50%;
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-card, .stay-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-image, .stay-image {
+        height: 200px;
+    }
+    
+    .booking-actions, .stay-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon"></div>
+            <div class="loading-text">GRAND HORIZON</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">GRAND<span>HORIZON</span></a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#rooms">Rooms & Suites</a>
+                <a href="#dining">Dining</a>
+                <a href="#spa">Spa</a>
+                <a href="#events">Events</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+                <button class="btn btn-login" id="loginBtn">Login</button>
+                <button class="btn btn-primary">Book Now</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h5 class="subtitle">LUXURY REDEFINED</h5>
+                        <h1 class="title">Experience Unparalleled Elegance</h1>
+                        <p class="description">Where timeless sophistication meets contemporary comfort in the heart of the city.</p>
+                        <div class="hero-btns">
+                            <button class="btn btn-primary">Explore Rooms</button>
+                            <button class="btn btn-outline">Virtual Tour</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h5 class="subtitle">CULINARY EXCELLENCE</h5>
+                        <h1 class="title">Award-Winning Dining</h1>
+                        <p class="description">Michelin-starred restaurants offering world-class gastronomic experiences.</p>
+                        <div class="hero-btns">
+                            <button class="btn btn-primary">Discover Menus</button>
+                            <button class="btn btn-outline">Make Reservation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2031&q=80');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h5 class="subtitle">ULTIMATE RELAXATION</h5>
+                        <h1 class="title">Tranquil Spa Retreat</h1>
+                        <p class="description">Revitalize your senses with our signature treatments and therapies.</p>
+                        <div class="hero-btns">
+                            <button class="btn btn-primary">View Treatments</button>
+                            <button class="btn btn-outline">Book Appointment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-controls">
+            <button class="slide-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="slide-dots"></div>
+            <button class="slide-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Booking Widget -->
+    <section class="booking-widget">
+        <div class="container">
+            <form class="booking-form">
+                <div class="form-group">
+                    <label>Check In</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Check Out</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Guests</label>
+                    <select class="form-control">
+                        <option>1 Adult</option>
+                        <option>2 Adults</option>
+                        <option>3 Adults</option>
+                        <option>Family (2 Adults + 2 Children)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Room Type</label>
+                    <select class="form-control">
+                        <option>Deluxe Room</option>
+                        <option>Executive Suite</option>
+                        <option>Presidential Suite</option>
+                        <option>Penthouse</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Check Availability</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h5 class="section-subtitle">GRAND HORIZON HOTEL</h5>
+                <h2 class="section-title">A Legacy of Luxury Hospitality</h2>
+                <p>Since 1985, Grand Horizon has set the standard for luxury accommodations, combining timeless elegance with modern sophistication. Our commitment to exceptional service and attention to detail has made us a preferred destination for discerning travelers worldwide.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h4>24/7 Concierge</h4>
+                        <p>Personalized service for all your needs</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-swimming-pool"></i>
+                        <h4>Infinity Pool</h4>
+                        <p>Stunning city views from our rooftop</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wifi"></i>
+                        <h4>High-Speed WiFi</h4>
+                        <p>Complimentary throughout the hotel</p>
+                    </div>
+                </div>
+                <button class="btn btn-outline">Discover More</button>
+            </div>
+            <div class="about-images">
+                <div class="image-main" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80');"></div>
+                <div class="image-secondary" style="background-image: url('https://images.unsplash.com/photo-1582719471386-3a8b0d17f743?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms-section" id="rooms">
+        <div class="container">
+            <div class="section-header">
+                <h5 class="section-subtitle">ACCOMMODATIONS</h5>
+                <h2 class="section-title">Rooms & Suites</h2>
+                <p>Each of our 250 guest rooms and suites has been meticulously designed to provide the ultimate in comfort and luxury, featuring bespoke furnishings, premium amenities, and breathtaking views.</p>
+            </div>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1592229505726-ca121043b6f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Deluxe Room</h3>
+                        <div class="room-features">
+                            <span><i class="fas fa-ruler-combined"></i> 45 m²</span>
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Adults</span>
+                        </div>
+                        <p>Our Deluxe Rooms offer a harmonious blend of comfort and style, featuring a spacious layout and elegant contemporary design.</p>
+                        <div class="room-footer">
+                            <div class="price">From $350/night</div>
+                            <button class="btn btn-outline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Executive Suite</h3>
+                        <div class="room-features">
+                            <span><i class="fas fa-ruler-combined"></i> 75 m²</span>
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Adults</span>
+                        </div>
+                        <p>Designed for business travelers, our Executive Suites feature a separate living area and enhanced work facilities.</p>
+                        <div class="room-footer">
+                            <div class="price">From $550/night</div>
+                            <button class="btn btn-outline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1566669437685-5d330a01ed1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Presidential Suite</h3>
+                        <div class="room-features">
+                            <span><i class="fas fa-ruler-combined"></i> 120 m²</span>
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Adults + 2 Children</span>
+                        </div>
+                        <p>The epitome of luxury, our Presidential Suite offers expansive living spaces, a dining area, and panoramic city views.</p>
+                        <div class="room-footer">
+                            <div class="price">From $1,200/night</div>
+                            <button class="btn btn-outline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <button class="btn btn-primary">View All Accommodations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dining Section -->
+    <section class="dining-section" id="dining">
+        <div class="container">
+            <div class="section-header">
+                <h5 class="section-subtitle">CULINARY EXPERIENCES</h5>
+                <h2 class="section-title">Restaurants & Bars</h2>
+                <p>Grand Horizon boasts an exceptional collection of dining venues, from our Michelin-starred restaurant to the vibrant rooftop bar, each offering distinctive culinary experiences.</p>
+            </div>
+            <div class="dining-tabs">
+                <div class="tab-header">
+                    <button class="tab-btn active" data-tab="aurora">Aurora</button>
+                    <button class="tab-btn" data-tab="terrace">Horizon Terrace</button>
+                    <button class="tab-btn" data-tab="lounge">Sky Lounge</button>
+                    <button class="tab-btn" data-tab="bar">Cloud Nine Bar</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="aurora">
+                        <div class="tab-image" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                        <div class="tab-details">
+                            <h3>Aurora <span class="michelin-star">★</span></h3>
+                            <div class="cuisine-type">Contemporary French</div>
+                            <div class="dining-hours">
+                                <div><span>Breakfast:</span> 7:00 AM - 10:30 AM</div>
+                                <div><span>Lunch:</span> 12:00 PM - 2:30 PM</div>
+                                <div><span>Dinner:</span> 6:30 PM - 10:30 PM</div>
+                            </div>
+                            <p>Our Michelin-starred signature restaurant offers an exquisite journey through contemporary French cuisine, crafted by Chef Élise Laurent. The seasonal tasting menu showcases the finest local ingredients with innovative techniques.</p>
+                            <div class="dining-footer">
+                                <div class="dress-code">Dress Code: Smart Elegant</div>
+                                <button class="btn btn-primary">Reserve a Table</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="terrace">
+                        <div class="tab-image" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');"></div>
+                        <div class="tab-details">
+                            <h3>Horizon Terrace</h3>
+                            <div class="cuisine-type">Mediterranean</div>
+                            <div class="dining-hours">
+                                <div><span>Breakfast:</span> 7:00 AM - 11:00 AM</div>
+                                <div><span>Lunch:</span> 12:00 PM - 4:00 PM</div>
+                                <div><span>Dinner:</span> 6:00 PM - 11:00 PM</div>
+                            </div>
+                            <p>Al fresco dining at its finest, our rooftop terrace offers stunning panoramic views alongside a menu inspired by the sun-drenched flavors of the Mediterranean. Perfect for sunset cocktails and relaxed dining.</p>
+                            <div class="dining-footer">
+                                <div class="dress-code">Dress Code: Smart Casual</div>
+                                <button class="btn btn-primary">Reserve a Table</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="lounge">
+                        <div class="tab-image" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');"></div>
+                        <div class="tab-details">
+                            <h3>Sky Lounge</h3>
+                            <div class="cuisine-type">International</div>
+                            <div class="dining-hours">
+                                <div><span>Open:</span> 10:00 AM - 1:00 AM</div>
+                            </div>
+                            <p>The social heart of the hotel, Sky Lounge offers all-day dining with an international menu, afternoon tea service, and evening cocktails with live jazz performances Thursday through Saturday.</p>
+                            <div class="dining-footer">
+                                <div class="dress-code">Dress Code: Casual Elegant</div>
+                                <button class="btn btn-primary">Reserve a Table</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="bar">
+                        <div class="tab-image" style="background-image: url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');"></div>
+                        <div class="tab-details">
+                            <h3>Cloud Nine Bar</h3>
+                            <div class="cuisine-type">Cocktails & Light Bites</div>
+                            <div class="dining-hours">
+                                <div><span>Open:</span> 5:00 PM - 2:00 AM</div>
+                            </div>
+                            <p>Perched on the 42nd floor, Cloud Nine offers craft cocktails with breathtaking city views. Our mixologists create innovative drinks using premium spirits and house-made infusions.</p>
+                            <div class="dining-footer">
+                                <div class="dress-code">Dress Code: Smart Casual</div>
+                                <button class="btn btn-primary">Reserve a Table</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spa Section -->
+    <section class="spa-section" id="spa">
+        <div class="container">
+            <div class="spa-content">
+                <h5 class="section-subtitle">WELLNESS & SPA</h5>
+                <h2 class="section-title">Serenity Spa</h2>
+                <p>Escape to our award-winning spa sanctuary, where ancient healing traditions meet modern wellness techniques. Our holistic approach focuses on restoring balance and harmony to both body and mind.</p>
+                <div class="spa-features">
+                    <div class="feature">
+                        <i class="fas fa-spa"></i>
+                        <h4>Signature Treatments</h4>
+                        <p>Unique therapies using premium organic products</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-hot-tub"></i>
+                        <h4>Thermal Suite</h4>
+                        <p>Experience our hydrotherapy circuits</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-md"></i>
+                        <h4>Expert Therapists</h4>
+                        <p>Highly trained in various massage techniques</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary">Explore Treatments</button>
+            </div>
+            <div class="spa-image">
+                <div class="image-main" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="image-secondary" style="background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section" id="events">
+        <div class="container">
+            <div class="section-header">
+                <h5 class="section-subtitle">VENUES</h5>
+                <h2 class="section-title">Meetings & Events</h2>
+                <p>Grand Horizon offers exceptional venues for weddings, corporate events, and social gatherings, supported by our dedicated events team to ensure every detail is perfected.</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="event-capacity">Up to 120 Guests</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Crystal Ballroom</h3>
+                        <p>Our premier event space features soaring ceilings, crystal chandeliers, and state-of-the-art audiovisual technology.</p>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="event-capacity">Up to 300 Guests</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Grand Horizon Hall</h3>
+                        <p>The largest pillar-free banquet hall in the city, divisible into three sections for flexible configurations.</p>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="event-capacity">Up to 50 Guests</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Executive Boardroom</h3>
+                        <p>Designed for high-level meetings with premium videoconferencing facilities and executive seating.</p>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <button class="btn btn-primary">Plan Your Event</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h5 class="section-subtitle">GUEST EXPERIENCES</h5>
+                <h2 class="section-title">What Our Guests Say</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The attention to detail at Grand Horizon is unparalleled. From the moment we arrived, every staff member went above and beyond to ensure our stay was perfect. The spa treatments were divine and our suite was breathtaking."</p>
+                        <div class="guest-info">
+                            <div class="guest-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/65.jpg');"></div>
+                            <div class="guest-details">
+                                <h4>Sarah Johnson</h4>
+                                <div class="guest-location">New York, USA</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"We hosted our annual conference at Grand Horizon and the experience was flawless. The events team handled every detail perfectly, the catering was exquisite, and all our guests were impressed with the facilities."</p>
+                        <div class="guest-info">
+                            <div class="guest-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+                            <div class="guest-details">
+                                <h4>Michael Chen</h4>
+                                <div class="guest-location">London, UK</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Our wedding at Grand Horizon was everything we dreamed of and more. The ballroom looked magical, the food was delicious, and the staff made sure everything ran smoothly. We couldn't have asked for a more perfect day."</p>
+                        <div class="guest-info">
+                            <div class="guest-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                            <div class="guest-details">
+                                <h4>Emily & David</h4>
+                                <div class="guest-location">Sydney, Australia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots"></div>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h5 class="section-subtitle">MOMENTS</h5>
+                <h2 class="section-title">Gallery</h2>
+                <p>Explore the beauty and elegance of Grand Horizon through our curated collection of images showcasing our accommodations, dining venues, and facilities.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80');">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1582719471386-3a8b0d17f743?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2031&q=80');">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1564501049551-d5d997a6e486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <button class="btn btn-primary">View Full Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h5 class="section-subtitle">GET IN TOUCH</h5>
+                <h2 class="section-title">Contact Us</h2>
+                <p>Our concierge team is available 24/7 to assist with reservations, special requests, or any inquiries you may have about your stay at Grand Horizon.</p>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>1 Grand Horizon Boulevard<br>Downtown, City Center 10001</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>reservations@grandhorizon.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Message" class="form-control" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for exclusive offers, events, and luxury travel inspiration.</p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Grand Horizon</h4>
+                    <p>A sanctuary of luxury in the heart of the city, where exceptional service meets timeless elegance.</p>
+                    <div class="footer-logo">GRAND<span>HORIZON</span></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#rooms">Rooms & Suites</a></li>
+                        <li><a href="#dining">Dining</a></li>
+                        <li><a href="#spa">Spa</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Concierge</a></li>
+                        <li><a href="#">Airport Transfer</a></li>
+                        <li><a href="#">Room Service</a></li>
+                        <li><a href="#">Laundry Service</a></li>
+                        <li><a href="#">Business Center</a></li>
+                        <li><a href="#">Valet Parking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 Grand Horizon Hotel. All Rights Reserved.
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h2>Welcome Back</h2>
+                <p>Sign in to access your account and manage your bookings.</p>
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Enter your password">
+                    </div>
+                    <div class="form-options">
+                        <div class="form-check">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                <button class="btn btn-social btn-google">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button class="btn btn-social btn-facebook">
+                    <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+                <div class="auth-footer">
+                    Don't have an account? <a href="#" id="showRegister">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h2>Create Account</h2>
+                <p>Join our loyalty program to enjoy exclusive benefits and rewards.</p>
+                <form class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your first name">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Create a password">
+                        <small class="form-text">Minimum 8 characters with at least one number</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" placeholder="Confirm your password">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="terms">
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                </form>
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                <button class="btn btn-social btn-google">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button class="btn btn-social btn-facebook">
+                    <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+                <div class="auth-footer">
+                    Already have an account? <a href="#" id="showLogin">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Dashboard (Hidden by default) -->
+    <div class="dashboard-overlay" id="dashboardOverlay">
+        <div class="dashboard-container">
+            <div class="dashboard-sidebar">
+                <div class="dashboard-user">
+                    <div class="user-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                    <div class="user-info">
+                        <h4>Emily Johnson</h4>
+                        <div class="user-status">Gold Member</div>
+                    </div>
+                </div>
+                <nav class="dashboard-nav">
+                    <a href="#" class="nav-item active" data-content="dashboard">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                    <a href="#" class="nav-item" data-content="bookings">
+                        <i class="fas fa-calendar-alt"></i> My Bookings
+                    </a>
+                    <a href="#" class="nav-item" data-content="profile">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="#" class="nav-item" data-content="rewards">
+                        <i class="fas fa-award"></i> Rewards
+                    </a>
+                    <a href="#" class="nav-item" data-content="messages">
+                        <i class="fas fa-envelope"></i> Messages <span class="badge">3</span>
+                    </a>
+                    <a href="#" class="nav-item" data-content="settings">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </nav>
+                <button class="btn btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            <div class="dashboard-main">
+                <div class="dashboard-header">
+                    <button class="btn-close-dashboard">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h3>Dashboard</h3>
+                    <div class="header-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> New Booking
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content active" id="dashboardContent">
+                    <div class="welcome-banner">
+                        <h2>Welcome Back, Emily</h2>
+                        <p>You have <strong>2 upcoming stays</strong> and <strong>1,250 reward points</strong> available to redeem.</p>
+                    </div>
+                    
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #FFE8D6;">
+                                <i class="fas fa-bed" style="color: #CB997E;"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>12</h4>
+                                <p>Total Stays</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #E2F3F8;">
+                                <i class="fas fa-star" style="color: #00A8E8;"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Gold</h4>
+                                <p>Member Tier</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #E8F5E9;">
+                                <i class="fas fa-coins" style="color: #43A047;"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>1,250</h4>
+                                <p>Reward Points</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #F3E5F5;">
+                                <i class="fas fa-percentage" style="color: #9C27B0;"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>15%</h4>
+                                <p>Discount</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="upcoming-stays">
+                        <div class="section-header">
+                            <h4>Upcoming Stays</h4>
+                            <a href="#">View All</a>
+                        </div>
+                        <div class="stays-list">
+                            <div class="stay-card">
+                                <div class="stay-image" style="background-image: url('https://images.unsplash.com/photo-1592229505726-ca121043b6f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                                <div class="stay-details">
+                                    <h5>Presidential Suite</h5>
+                                    <div class="stay-date">
+                                        <i class="fas fa-calendar-alt"></i> Dec 15 - Dec 20, 2023
+                                    </div>
+                                    <div class="stay-guests">
+                                        <i class="fas fa-user-friends"></i> 2 Adults
+                                    </div>
+                                    <div class="stay-status confirmed">
+                                        <i class="fas fa-check-circle"></i> Confirmed
+                                    </div>
+                                </div>
+                                <div class="stay-actions">
+                                    <button class="btn btn-outline">View Details</button>
+                                    <button class="btn btn-text">Cancel</button>
+                                </div>
+                            </div>
+                            <div class="stay-card">
+                                <div class="stay-image" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                                <div class="stay-details">
+                                    <h5>Executive Suite</h5>
+                                    <div class="stay-date">
+                                        <i class="fas fa-calendar-alt"></i> Jan 5 - Jan 10, 2024
+                                    </div>
+                                    <div class="stay-guests">
+                                        <i class="fas fa-user-friends"></i> 1 Adult
+                                    </div>
+                                    <div class="stay-status confirmed">
+                                        <i class="fas fa-check-circle"></i> Confirmed
+                                    </div>
+                                </div>
+                                <div class="stay-actions">
+                                    <button class="btn btn-outline">View Details</button>
+                                    <button class="btn btn-text">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rewards-section">
+                        <div class="section-header">
+                            <h4>Your Rewards</h4>
+                            <a href="#">How it works</a>
+                        </div>
+                        <div class="rewards-card">
+                            <div class="rewards-progress">
+                                <div class="progress-bar" style="width: 45%;">
+                                    <div class="progress-label">45% to Platinum</div>
+                                </div>
+                                <div class="tier-markers">
+                                    <div class="tier-marker silver">Silver</div>
+                                    <div class="tier-marker gold active">Gold</div>
+                                    <div class="tier-marker platinum">Platinum</div>
+                                </div>
+                            </div>
+                            <div class="rewards-details">
+                                <div class="rewards-points">
+                                    <h5>1,250</h5>
+                                    <p>Points</p>
+                                </div>
+                                <div class="rewards-benefits">
+                                    <h5>Gold Benefits</h5>
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> 15% discount on stays</li>
+                                        <li><i class="fas fa-check"></i> Room upgrade when available</li>
+                                        <li><i class="fas fa-check"></i> Late checkout until 2pm</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Redeem Points</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content" id="bookingsContent">
+                    <div class="section-header">
+                        <h4>My Bookings</h4>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> New Booking
+                        </button>
+                    </div>
+                    
+                    <div class="bookings-tabs">
+                        <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+                        <button class="tab-btn" data-tab="past">Past Stays</button>
+                        <button class="tab-btn" data-tab="cancelled">Cancelled</button>
+                    </div>
+                    
+                    <div class="bookings-list">
+                        <div class="booking-card">
+                            <div class="booking-image" style="background-image: url('https://images.unsplash.com/photo-1592229505726-ca121043b6f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                            <div class="booking-details">
+                                <h5>Presidential Suite</h5>
+                                <div class="booking-date">
+                                    <i class="fas fa-calendar-alt"></i> Dec 15 - Dec 20, 2023 (5 nights)
+                                </div>
+                                <div class="booking-id">
+                                    <i class="fas fa-hashtag"></i> GH-2023-1245
+                                </div>
+                                <div class="booking-status confirmed">
+                                    <i class="fas fa-check-circle"></i> Confirmed
+                                </div>
+                                <div class="booking-price">
+                                    $6,000.00 <small>including taxes</small>
+                                </div>
+                            </div>
+                            <div class="booking-actions">
+                                <button class="btn btn-outline">View Details</button>
+                                <button class="btn btn-text">Modify</button>
+                                <button class="btn btn-text">Cancel</button>
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <div class="booking-image" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                            <div class="booking-details">
+                                <h5>Executive Suite</h5>
+                                <div class="booking-date">
+                                    <i class="fas fa-calendar-alt"></i> Jan 5 - Jan 10, 2024 (5 nights)
+                                </div>
+                                <div class="booking-id">
+                                    <i class="fas fa-hashtag"></i> GH-2023-1342
+                                </div>
+                                <div class="booking-status confirmed">
+                                    <i class="fas fa-check-circle"></i> Confirmed
+                                </div>
+                                <div class="booking-price">
+                                    $2,750.00 <small>including taxes</small>
+                                </div>
+                            </div>
+                            <div class="booking-actions">
+                                <button class="btn btn-outline">View Details</button>
+                                <button class="btn btn-text">Modify</button>
+                                <button class="btn btn-text">Cancel</button>
+                            </div>
+                        </div>
+                        
+                        <div class="no-bookings">
+                            <i class="fas fa-calendar-alt"></i>
+                            <p>No upcoming bookings found</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content" id="profileContent">
+                    <div class="section-header">
+                        <h4>My Profile</h4>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                            <div class="profile-info">
+                                <h3>Emily Johnson</h3>
+                                <div class="member-status gold">
+                                    <i class="fas fa-crown"></i> Gold Member
+                                </div>
+                                <div class="member-since">
+                                    Member since October 2019
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-details">
+                            <div class="detail-group">
+                                <h5>Personal Information</h5>
+                                <div class="detail-item">
+                                    <label>Full Name</label>
+                                    <p>Emily Johnson</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Email</label>
+                                    <p>emily.johnson@example.com</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Phone</label>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Date of Birth</label>
+                                    <p>March 15, 1985</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-group">
+                                <h5>Preferences</h5>
+                                <div class="detail-item">
+                                    <label>Room Preference</label>
+                                    <p>High floor, King bed</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Pillow Type</label>
+                                    <p>Feather</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Newspaper</label>
+                                    <p>New York Times</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Dietary Restrictions</label>
+                                    <p>None</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-group">
+                                <h5>Address</h5>
+                                <div class="detail-item">
+                                    <label>Street</label>
+                                    <p>123 Park Avenue</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>City</label>
+                                    <p>New York</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>State/Province</label>
+                                    <p>NY</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>ZIP/Postal Code</label>
+                                    <p>10001</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Country</label>
+                                    <p>United States</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other dashboard content sections would follow the same pattern -->
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript will be placed here
+        // Preloader
+window.addEventListener('load', function() {
+    const preloader = document.querySelector('.preloader');
+    setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    }, 1000);
+});
+
+// Navigation
+const navbar = document.querySelector('.navbar');
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Hero Slider
+const slides = document.querySelectorAll('.slide');
+const slideDots = document.querySelector('.slide-dots');
+const prevBtn = document.querySelector('.slide-prev');
+const nextBtn = document.querySelector('.slide-next');
+let currentSlide = 0;
+
+// Create dots
+slides.forEach((slide, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('slide-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(index));
+    slideDots.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.slide-dot');
+
+function goToSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    goToSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    goToSlide(currentSlide - 1);
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+// Auto slide change
+let slideInterval = setInterval(nextSlide, 5000);
+
+// Pause on hover
+const heroSlider = document.querySelector('.hero-slider');
+heroSlider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+heroSlider.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+
+// Dining Tabs
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanes = document.querySelectorAll('.tab-pane');
+
+tabBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons and panes
+        tabBtns.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding pane
+        btn.classList.add('active');
+        tabPanes[index].classList.add('active');
+    });
+});
+
+// Testimonials Slider
+const testimonials = document.querySelectorAll('.testimonial');
+const testimonialDots = document.querySelector('.testimonial-dots');
+const testimonialPrev = document.querySelector('.testimonial-prev');
+const testimonialNext = document.querySelector('.testimonial-next');
+let currentTestimonial = 0;
+
+// Create dots
+testimonials.forEach((testimonial, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('testimonial-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToTestimonial(index));
+    testimonialDots.appendChild(dot);
+});
+
+const testimonialDotsAll = document.querySelectorAll('.testimonial-dot');
+
+function goToTestimonial(n) {
+    testimonials[currentTestimonial].classList.remove('active');
+    testimonialDotsAll[currentTestimonial].classList.remove('active');
+    currentTestimonial = (n + testimonials.length) % testimonials.length;
+    testimonials[currentTestimonial].classList.add('active');
+    testimonialDotsAll[currentTestimonial].classList.add('active');
+}
+
+testimonialNext.addEventListener('click', () => goToTestimonial(currentTestimonial + 1));
+testimonialPrev.addEventListener('click', () => goToTestimonial(currentTestimonial - 1));
+
+// Auto testimonial change
+setInterval(() => goToTestimonial(currentTestimonial + 1), 8000);
+
+// Modal
+const loginBtn = document.getElementById('loginBtn');
+const loginModal = document.getElementById('loginModal');
+const registerModal = document.getElementById('registerModal');
+const showRegister = document.getElementById('showRegister');
+const showLogin = document.getElementById('showLogin');
+const closeModals = document.querySelectorAll('.close-modal');
+
+loginBtn.addEventListener('click', () => {
+    loginModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+showRegister.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginModal.classList.remove('active');
+    registerModal.classList.add('active');
+});
+
+showLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    registerModal.classList.remove('active');
+    loginModal.classList.add('active');
+});
+
+closeModals.forEach(btn => {
+    btn.addEventListener('click', () => {
+        loginModal.classList.remove('active');
+        registerModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === loginModal) {
+        loginModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    if (e.target === registerModal) {
+        registerModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Dashboard
+const dashboardOverlay = document.getElementById('dashboardOverlay');
+const closeDashboard = document.querySelector('.btn-close-dashboard');
+const dashboardNavItems = document.querySelectorAll('.nav-item');
+const dashboardContents = document.querySelectorAll('.dashboard-content');
+const bookingTabs = document.querySelectorAll('.bookings-tabs .tab-btn');
+
+// Show dashboard when logged in (for demo purposes)
+loginModal.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    loginModal.classList.remove('active');
+    dashboardOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+// Close dashboard
+closeDashboard.addEventListener('click', () => {
+    dashboardOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Dashboard navigation
+dashboardNavItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const contentId = item.getAttribute('data-content');
+        
+        dashboardNavItems.forEach(navItem => navItem.classList.remove('active'));
+        dashboardContents.forEach(content => content.classList.remove('active'));
+        
+        item.classList.add('active');
+        document.getElementById(contentId + 'Content').classList.add('active');
+    });
+});
+
+// Booking tabs
+bookingTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        bookingTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        // Here you would load the appropriate content for the tab
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Animation on scroll
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.about-content, .about-images, .room-card, .feature, .event-card, .gallery-item');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Set initial state for animated elements
+document.querySelectorAll('.about-content, .about-images, .room-card, .feature, .event-card, .gallery-item').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(30px)';
+    element.style.transition = 'all 0.6s ease';
+});
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
