@@ -2119,61 +2119,36 @@ ul {
     gap: 0.5rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .dashboard-container {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 992px) {
-    .about-section .container,
-    .spa-section .container,
-    .contact-section .container {
-        grid-template-columns: 1fr;
+/* Mobile Styles (up to 767px) */
+@media (max-width: 767px) {
+    /* Base Adjustments */
+    body {
+        font-size: 14px;
     }
     
-    .about-images, .spa-image {
-        height: 400px;
-        order: -1;
+    .container {
+        padding: 0 1rem;
     }
     
-    .newsletter-section .container {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
+    .section-title {
+        font-size: 1.8rem;
     }
     
-    .newsletter-form {
-        max-width: 100%;
+    .section-subtitle {
+        font-size: 0.75rem;
     }
     
-    .tab-pane.active {
-        grid-template-columns: 1fr;
-    }
-    
-    .tab-image {
-        height: 250px;
-    }
-    
-    .dashboard-sidebar {
-        width: 250px;
-    }
-    
-    .booking-card, .stay-card {
-        grid-template-columns: 150px 1fr;
-    }
-    
-    .booking-actions, .stay-actions {
-        grid-column: 1 / -1;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar .container {
+    /* Navigation */
+    .navbar {
         padding: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.25rem;
+    }
+    
+    .hamburger {
+        display: flex;
     }
     
     .nav-links {
@@ -2186,8 +2161,8 @@ ul {
         background-color: var(--bg-white);
         flex-direction: column;
         align-items: flex-start;
-        padding: 6rem 2rem 2rem;
-        transition: all 0.3s ease;
+        padding: 5rem 1.5rem 2rem;
+        transition: right 0.3s ease;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
     
@@ -2197,109 +2172,145 @@ ul {
     
     .nav-links a {
         color: var(--text-dark);
-        margin: 0 0 1rem;
+        margin: 0.75rem 0;
         padding: 0.5rem 0;
+        font-size: 1rem;
+        width: 100%;
     }
     
-    .hamburger {
-        display: flex;
-        z-index: 1001;
+    .nav-links .btn {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
     }
     
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
+    /* Hero Section */
+    .hero {
+        height: 80vh;
     }
     
     .hero-content {
-        padding-top: 15vh;
+        padding: 10vh 1rem 0;
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .hero-content .subtitle {
+        font-size: 0.875rem;
     }
     
     .hero-content .title {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .hero-content .description {
+        font-size: 0.875rem;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+    }
+    
+    .slide-controls {
+        bottom: 1.5rem;
+    }
+    
+    .slide-prev, .slide-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Booking Widget */
+    .booking-widget {
+        margin-top: -80px;
+        padding: 1rem;
     }
     
     .booking-form {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
-    .booking-widget {
-        margin-top: -100px;
+    .form-control {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .btn-primary {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    /* About Section */
+    .about-section, .spa-section, .contact-section {
+        padding: 3rem 0;
+    }
+    
+    .about-section .container,
+    .spa-section .container,
+    .contact-section .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-content, .spa-content {
+        padding-right: 0;
+    }
+    
+    .about-images, .spa-image {
+        height: 250px;
+        order: -1;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-features, .spa-features {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature {
+        padding: 1rem;
+    }
+    
+    /* Rooms Section */
+    .rooms-section, .events-section, .gallery-section, .testimonials-section {
+        padding: 3rem 0;
     }
     
     .rooms-grid, .events-grid, .gallery-grid {
         grid-template-columns: 1fr;
     }
     
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
+    .room-card, .event-card {
+        margin-bottom: 1.5rem;
     }
     
-    .dashboard-container {
-        flex-direction: column;
+    .room-image, .event-image {
+        height: 200px;
     }
     
-    .dashboard-sidebar {
-        width: 100%;
+    .room-content, .event-content {
         padding: 1rem;
     }
     
-    .dashboard-user {
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
+    .room-content h3, .event-content h3 {
+        font-size: 1.25rem;
     }
     
-    .dashboard-nav {
-        display: none;
+    .room-features {
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
     
-    .dashboard-nav.active {
-        display: block;
+    .price {
+        font-size: 1rem;
     }
     
-    .btn-close-dashboard {
-        display: block;
-    }
-    
-    .rewards-details {
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .profile-avatar {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .hero-content .title {
-        font-size: 2rem;
-    }
-    
-    .hero-btns {
-        flex-direction: column;
-    }
-    
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-    
+    /* Dining Section */
     .tab-header {
         flex-wrap: wrap;
     }
@@ -2310,27 +2321,401 @@ ul {
         font-size: 0.875rem;
     }
     
-    .footer-grid {
+    .tab-pane.active {
         grid-template-columns: 1fr;
     }
     
-    .booking-card, .stay-card {
-        grid-template-columns: 1fr;
+    .tab-image {
+        height: 200px;
+        margin-bottom: 1rem;
     }
     
-    .booking-image, .stay-image {
+    .tab-details h3 {
+        font-size: 1.5rem;
+    }
+    
+    .dining-hours div {
+        font-size: 0.875rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-content {
+        padding: 1.5rem;
+    }
+    
+    .testimonial p {
+        font-size: 1rem;
+    }
+    
+    .guest-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Gallery */
+    .gallery-item {
         height: 200px;
     }
     
-    .booking-actions, .stay-actions {
+    /* Contact */
+    .contact-form .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-info .info-item {
+        margin-bottom: 1rem;
+    }
+    
+    /* Newsletter */
+    .newsletter-section {
+        padding: 2rem 0;
+    }
+    
+    .newsletter-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .newsletter-form {
         flex-direction: column;
     }
     
-    .btn {
+    .newsletter-form input {
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .newsletter-form button {
+        border-radius: 4px;
+        padding: 0.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 2rem 0 0;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer-col {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    /* Modal */
+    .modal-content {
+        max-width: 90%;
+        margin: 0 1rem;
+    }
+    
+    .modal-body {
+        padding: 1.5rem;
+    }
+    
+    .auth-form .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Dashboard */
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .dashboard-sidebar {
         width: 100%;
+        padding: 1rem;
+        height: auto;
+    }
+    
+    .dashboard-user {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    
+    .user-avatar {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+    }
+    
+    .dashboard-nav {
+        display: none;
+    }
+    
+    .dashboard-nav.active {
+        display: block;
+    }
+    
+    .nav-item {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .dashboard-mobile-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        background-color: var(--bg-light);
+        border-radius: 4px;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+    
+    .dashboard-main {
+        padding: 1rem;
+    }
+    
+    .stats-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stay-card, .booking-card {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stay-image, .booking-image {
+        height: 150px;
+    }
+    
+    .stay-actions, .booking-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .rewards-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .profile-details {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.5rem;
+        font-size: 0.875rem;
     }
 }
 
+/* Tablet Styles (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Base Adjustments */
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    /* Navigation */
+    .nav-links a {
+        margin: 0 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .nav-links .btn {
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        height: 90vh;
+    }
+    
+    .hero-content {
+        padding-top: 15vh;
+        max-width: 80%;
+    }
+    
+    .hero-content .title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content .description {
+        font-size: 1rem;
+    }
+    
+    /* Booking Widget */
+    .booking-widget {
+        margin-top: -60px;
+        padding: 1.5rem;
+    }
+    
+    .booking-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* About Section */
+    .about-section, .spa-section, .contact-section {
+        padding: 4rem 0;
+    }
+    
+    .about-section .container,
+    .spa-section .container,
+    .contact-section .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-images, .spa-image {
+        height: 350px;
+        order: -1;
+        margin-bottom: 2rem;
+    }
+    
+    .about-features, .spa-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Rooms & Events */
+    .rooms-section, .events-section, .gallery-section, .testimonials-section {
+        padding: 4rem 0;
+    }
+    
+    .rooms-grid, .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .room-image, .event-image {
+        height: 220px;
+    }
+    
+    /* Dining */
+    .tab-pane.active {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-image {
+        height: 250px;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-content {
+        padding: 2rem;
+    }
+    
+    /* Newsletter */
+    .newsletter-section {
+        padding: 3rem 0;
+    }
+    
+    .newsletter-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .newsletter-form {
+        max-width: 80%;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 3rem 0 0;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    /* Modal */
+    .modal-content {
+        max-width: 80%;
+    }
+    
+    /* Dashboard */
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .dashboard-sidebar {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .dashboard-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .nav-item {
+        flex: 1 0 45%;
+        padding: 0.75rem;
+    }
+    
+    .dashboard-main {
+        padding: 1.5rem;
+    }
+    
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stay-card, .booking-card {
+        grid-template-columns: 150px 1fr;
+    }
+    
+    .stay-image, .booking-image {
+        height: 120px;
+    }
+    
+    .stay-actions, .booking-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+    
+    .rewards-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
     </style>
 </head>
 <body>
@@ -3396,7 +3781,7 @@ ul {
 
     <script>
         // JavaScript will be placed here
-        // Preloader
+    // Preloader
 window.addEventListener('load', function() {
     const preloader = document.querySelector('.preloader');
     setTimeout(() => {
@@ -3423,6 +3808,7 @@ window.addEventListener('scroll', function() {
 hamburger.addEventListener('click', function() {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
 });
 
 // Close mobile menu when clicking a link
@@ -3430,6 +3816,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        document.body.style.overflow = 'auto';
     });
 });
 
@@ -3473,7 +3860,7 @@ prevBtn.addEventListener('click', prevSlide);
 // Auto slide change
 let slideInterval = setInterval(nextSlide, 5000);
 
-// Pause on hover
+// Pause on hover or touch
 const heroSlider = document.querySelector('.hero-slider');
 heroSlider.addEventListener('mouseenter', () => clearInterval(slideInterval));
 heroSlider.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
@@ -3484,11 +3871,8 @@ const tabPanes = document.querySelectorAll('.tab-pane');
 
 tabBtns.forEach((btn, index) => {
     btn.addEventListener('click', () => {
-        // Remove active class from all buttons and panes
         tabBtns.forEach(btn => btn.classList.remove('active'));
         tabPanes.forEach(pane => pane.classList.remove('active'));
-        
-        // Add active class to clicked button and corresponding pane
         btn.classList.add('active');
         tabPanes[index].classList.add('active');
     });
@@ -3561,11 +3945,8 @@ closeModals.forEach(btn => {
 
 // Close modal when clicking outside
 window.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
+    if (e.target === loginModal || e.target === registerModal) {
         loginModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-    if (e.target === registerModal) {
         registerModal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
@@ -3578,7 +3959,7 @@ const dashboardNavItems = document.querySelectorAll('.nav-item');
 const dashboardContents = document.querySelectorAll('.dashboard-content');
 const bookingTabs = document.querySelectorAll('.bookings-tabs .tab-btn');
 
-// Show dashboard when logged in (for demo purposes)
+// Show dashboard when logged in (demo)
 loginModal.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     loginModal.classList.remove('active');
@@ -3590,6 +3971,7 @@ loginModal.querySelector('form').addEventListener('submit', (e) => {
 closeDashboard.addEventListener('click', () => {
     dashboardOverlay.classList.remove('active');
     document.body.style.overflow = 'auto';
+    document.querySelector('.dashboard-nav').classList.remove('active');
 });
 
 // Dashboard navigation
@@ -3603,6 +3985,11 @@ dashboardNavItems.forEach(item => {
         
         item.classList.add('active');
         document.getElementById(contentId + 'Content').classList.add('active');
+        
+        // Close mobile nav after selection
+        if (window.innerWidth < 768) {
+            document.querySelector('.dashboard-nav').classList.remove('active');
+        }
     });
 });
 
@@ -3611,7 +3998,7 @@ bookingTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         bookingTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        // Here you would load the appropriate content for the tab
+        // Implement dynamic content loading here if needed
     });
 });
 
@@ -3619,7 +4006,6 @@ bookingTabs.forEach(tab => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
         
@@ -3639,7 +4025,7 @@ function animateOnScroll() {
     
     elements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
+        const screenPosition = window.innerHeight / 1.3;
         
         if (elementPosition < screenPosition) {
             element.style.opacity = '1';
@@ -3651,12 +4037,87 @@ function animateOnScroll() {
 // Set initial state for animated elements
 document.querySelectorAll('.about-content, .about-images, .room-card, .feature, .event-card, .gallery-item').forEach(element => {
     element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'all 0.6s ease';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'all 0.5s ease';
 });
 
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
+
+// Dashboard Mobile Toggle
+const dashboardToggle = document.createElement('div');
+dashboardToggle.className = 'dashboard-mobile-toggle';
+dashboardToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
+dashboardToggle.style.cssText = 'display: none; align-items: center; gap: 0.5rem; cursor: pointer; padding: 0.5rem; background-color: var(--bg-light); border-radius: 4px; font-size: 0.875rem;';
+
+const dashboardHeader = document.querySelector('.dashboard-header');
+dashboardHeader.prepend(dashboardToggle);
+
+const dashboardNav = document.querySelector('.dashboard-nav');
+
+dashboardToggle.addEventListener('click', function() {
+    dashboardNav.classList.toggle('active');
+});
+
+// Show/hide mobile toggle based on screen size
+function handleDashboardLayout() {
+    if (window.innerWidth < 768) {
+        dashboardToggle.style.display = 'flex';
+        dashboardNav.style.display = 'none';
+    } else {
+        dashboardToggle.style.display = 'none';
+        dashboardNav.style.display = 'block';
+    }
+}
+
+handleDashboardLayout();
+window.addEventListener('resize', handleDashboardLayout);
+
+// Touch support for sliders
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Hero Slider Touch Support
+heroSlider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+heroSlider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX < touchStartX - 50) nextSlide();
+    if (touchEndX > touchStartX + 50) prevSlide();
+}, { passive: true });
+
+// Testimonial Slider Touch Support
+const testimonialSlider = document.querySelector('.testimonials-slider');
+testimonialSlider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+testimonialSlider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX < touchStartX - 50) goToTestimonial(currentTestimonial + 1);
+    if (touchEndX > touchStartX + 50) goToTestimonial(currentTestimonial - 1);
+}, { passive: true });
+
+// Prevent zoom on form inputs for mobile
+document.querySelectorAll('input, select, textarea').forEach(element => {
+    element.addEventListener('focus', function() {
+        if (window.innerWidth < 768) {
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        }
+    });
+    
+    element.addEventListener('blur', function() {
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0');
+    });
+});
+
+// Lazy load images for performance
+document.querySelectorAll('img, .room-image, .event-image, .gallery-item, .tab-image, .image-main, .image-secondary, .stay-image, .booking-image').forEach(element => {
+    element.setAttribute('loading', 'lazy');
+});
+
     </script>
 </body>
 </html>
